@@ -11,6 +11,6 @@ I teach subjects in mathematics and computer science at [NEXT Sukkertoppen](http
 
 Check out my [GitHub repository](github.com/HenrikSterner) for more information about projects and work related to teaching.
 
-In addition, I maintain a serious professional interest in other areas of computer science and mathematics including data mining and machine learning applied to computational finance, computational geometry and topology and parallel/distributed algorithms. Most of m coding in these areas are done in Python, Java, C\# and C++.
+In addition, I maintain a serious professional interest in other areas of computer science and mathematics including data mining and machine learning applied to computational finance, computational geometry and topology and parallel/distributed algorithms. Most of my coding done in these areas are done in Python, Java, C\# and C++.
 
-I can be reached through mail: "henrik.sterner at gmail.com". 
+Contact [henrik.sterner@gmail.com](henrik.sterner@gmail.com). 
