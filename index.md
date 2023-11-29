@@ -12,8 +12,8 @@ Early in my career I have been a TA at the University of Copenhagen in Algorithm
 In addition to my teaching, I maintain a serious professional interest in other areas of computer science including:
 
 - machine learning and data mining applied to computational finance with focus on prediction of financial time series and stock prices but also in the context of modelling product prices and sales.
-- computational geometry and computational topology with applications in analysis of markets making informed decisions about investments but also earlier on used for protein structure prediction.
-- didactics of computer science with focus on how to teach and train skills in computational thinking to highschool students. 
+- computational geometry and computational topology with applications in analysis of markets making informed decisions about investments but also earlier on used for protein structure prediction. Read more in this [publication](https://www.researchgate.net/publication/220939592_Alpha_Shapes_and_Proteins).  
+- didactics of computer science with focus on how to develop and train computational thinking to highschool students. In 2017 I was part of a team that developed a new curriculum for [programming](https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/valgfag/programmering-b-valgfag-august-2017.pdf) in highschool in Denmark. In 2023 I published a paper about a course of study in basic [object oriented programming for highschool students](https://emu.dk/htx/programmering/avancerede-konstruktioner/algoritmer-i-naturen-emergerende-flokadfaerd-og?b=t6-t1084). Im also a superviser of students in highschool teachers doing their pedagogy exam in computer science. 
 
 I have preveiously been active in the following areas:
 - parallel/distributed algorithms applied in the context of  and cryptography
