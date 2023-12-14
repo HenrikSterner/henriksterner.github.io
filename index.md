@@ -21,5 +21,4 @@ I have preveiously been active in the following areas:
   
 Most of my coding done in these areas are done in Python, Javascript/Typescript, Java, C\# and C/C++.
 
-## Contact
 Contact me at [henrik.sterner@gmail.com](henrik.sterner@gmail.com). 
