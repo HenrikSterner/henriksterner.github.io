@@ -7,7 +7,8 @@ Highschool teacher in computer science (programming, informatics and technical e
 Main subjects of teaching include: 
 * [Applied Machine learning and data science](https://henriksterner.github.io/IntelligenteSystemer/), 
 * [programming and software development](https://henriksterner.github.io/P5Programmering/), 
-* [Game development and Game-AI](https://henriksterner.github.io/Unity/) and [mathematics](https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/htx/matematik-a-htx-august-2017-ua.pdf). 
+* [Game development and Game-AI](https://henriksterner.github.io/Unity/)
+* [mathematics](https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/htx/matematik-a-htx-august-2017-ua.pdf). 
 
 Early in my career I have been a TA at the University of Copenhagen in Algorithms and data structures and Advanced algorithms.
 
