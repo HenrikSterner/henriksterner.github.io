@@ -19,6 +19,6 @@ I have preveiously been active in the following areas:
 - Computability theory and complexity theory
 - didactics of computer science with focus on how to develop and train computational thinking to highschool students. In 2017 I was part of a team that developed a new curriculum for [programming](https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/valgfag/programmering-b-valgfag-august-2017.pdf) in highschool in Denmark. In 2023 I published a paper about a course of study in basic [object oriented programming for highschool students](https://emu.dk/htx/programmering/avancerede-konstruktioner/algoritmer-i-naturen-emergerende-flokadfaerd-og?b=t6-t1084). Im also a superviser of students in highschool teachers doing their pedagogy exam in computer science. 
   
-Most of my coding done in these areas are done in Python, Javascript/Typescript, Java, C\# and C/C++.
+Most of my coding is done in Python, Javascript/Typescript, Java, C\# and C/C++.
 
 Contact me at [henrik.sterner@gmail.com](henrik.sterner@gmail.com). 
