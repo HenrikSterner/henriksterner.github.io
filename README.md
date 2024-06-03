@@ -2,7 +2,7 @@
 
 Graduate of computer science and mathematics with a minor in psychology from the University of Copenhagen. 
 
-I teach computer science (programming, informatics and technical engineering) and mathematics at [NEXT Sukkertoppen](https://nextkbh.dk) in Valby. 
+I am a highschool teacher in computer science (programming, informatics and technical engineering) and mathematics.
 Main subjects of teaching include: [Applied Machine learning and data science](https://henriksterner.github.io/IntelligenteSystemer/), [programming and software development](https://henriksterner.github.io/P5Programmering/), [Game development,  Game-AI](https://henriksterner.github.io/Unity/) and [mathematics](https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/htx/matematik-a-htx-august-2017-ua.pdf). 
 
 Check out my [GitHub page](http://www.github.com/HenrikSterner) for more information about projects and work primarly related to teaching.
