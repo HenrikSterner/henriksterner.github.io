@@ -5,7 +5,11 @@ Graduate of computer science and mathematics with a minor in psychology from the
 I am a highschool teacher in computer science (programming, informatics and technical engineering) and mathematics.
 Main subjects of teaching include: [Applied Machine learning and data science](https://henriksterner.github.io/IntelligenteSystemer/), [programming and software development](https://henriksterner.github.io/P5Programmering/), [Game development,  Game-AI](https://henriksterner.github.io/Unity/) and [mathematics](https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/htx/matematik-a-htx-august-2017-ua.pdf). 
 
-Check out my [GitHub page](http://www.github.com/HenrikSterner) for more information about projects and work primarly related to teaching.
+Check out my [GitHub page](http://www.github.com/HenrikSterner) for more information about projects and work primarly related to teaching. Notably courses in
+
+- [P5 Programming](https://henriksterner.github.io/P5Programmering/) for creative coding and visual programming.
+- [Python Programming](https://henriksterner.github.io/IntroPython) for general purpose programming.
+- [Machine Learning and Data Science](https://henriksterner.github.io/IntelligenteSystemer/) for applied machine learning and data science.
 
 Earlier I was a TA at the University of Copenhagen in Algorithms and data structures and Advanced algorithms.
 
