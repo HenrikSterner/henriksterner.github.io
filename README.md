@@ -1,9 +1,18 @@
 # Henrik Sterner
 
+<!-- Hide GitHub Pages header (safe, reversible). Remove this block to restore header -->
+<style>
+/* Common selectors used by GitHub Pages themes and repo header */
+header, .site-header, .Header, .topbar, .site-nav, .navbar, .site-title, .page-title {
+  display: none !important;
+}
+</style>
+
 Graduate of computer science and mathematics with a minor in psychology from the University of Copenhagen. 
 
 I am a highschool teacher in computer science (programming, informatics and technical engineering) and mathematics.
 Main subjects of teaching include: [Applied Machine learning and data science](https://henriksterner.github.io/IntelligenteSystemer/), [programming and software development](https://henriksterner.github.io/P5Programmering/), [Game development,  Game-AI](https://henriksterner.github.io/Unity/) and [mathematics](https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/htx/matematik-a-htx-august-2017-ua.pdf). 
+
 
 ## Teaching and Research Interests
 
@@ -29,17 +38,23 @@ I have preveiously been active in the following areas:
 Most of my coding done in these areas are done in Python, Javascript/Typescript, Java, C\# and C/C++.
 
 ## Book
+## Book
 
 I am the co-author of the book ["Programming in P5"](https://henriksterner.github.io/p5) together with Peter Sterner. The book is written in Danish and targets highschool students learning programming for the first time. The book uses the P5.js framework for creative coding and visual programming to teach basic programming concepts and problem solving skills.
+<style>
+/* Smaller thumbnail images for index page */
+.thumbnail { width: 140px; height: auto; object-fit: cover; border: 1px solid #ddd; }
+@media (max-width: 480px) { .thumbnail { width: 100px; } }
+</style>
 
 <div id="modal-frontpage" class="modal" onclick="location.hash='';">
-    <img src="frontpage.png" alt="Frontpage" />
+    <img class="thumbnail" src="frontpage.png" alt="Frontpage" />
   </div>
   <div id="modal-backcover" class="modal" onclick="location.hash='';">
-    <img src="backcover.png" alt="Backcover" />
+    <img class="thumbnail" src="backcover.png" alt="Backcover" />
   </div>
   
-You can view the [frontpage](#modal-frontpage) and [backcover](#modal-backcover) of the book by clicking the links.
+
 
 ## Contact
 
