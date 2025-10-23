@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Henrik Sterner</title>
+  <style>
+    body { font-family: Arial, system-ui, sans-serif; margin: 24px; background:#f9f9f9; color:#111 }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    h1 { font-size: 2.2rem; margin-bottom: 6px; }
+    p { line-height: 1.55; }
+    .images { display:flex; gap:20px; align-items:flex-start; margin:18px 0; }
+    .thumbnail { width:140px; height:auto; object-fit:cover; border:1px solid #ddd; }
+    @media (max-width:480px){ .thumbnail{ width:100px } .images{ flex-direction:row; justify-content:center } }
+    .modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center }
+    .modal img{ max-width:90vw; max-height:90vh; border:4px solid #fff; box-shadow:0 8px 30px rgba(0,0,0,0.5) }
+    .modal:target{ display:flex }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Henrik Sterner</h1>
+    <p>Graduate of computer science and mathematics with a minor in psychology from the University of Copenhagen.</p>
+    <p>I am a highschool teacher in computer science (programming, informatics and technical engineering) and mathematics. Main subjects of teaching include <a href="https://henriksterner.github.io/IntelligenteSystemer/">Applied Machine learning and data science</a>, <a href="https://henriksterner.github.io/P5Programmering/">programming and software development</a>, <a href="https://henriksterner.github.io/Unity/">Game development</a> and mathematics.</p>
+
+    <h2>Book</h2>
+    <p>I am the co-author of the book "Programming in P5" together with Peter Sterner. The book uses P5.js for creative coding and visual programming.</p>
+
+    <div class="images">
+      <div>
+        <a href="#modal-frontpage"><img class="thumbnail" src="frontpage.png" alt="Frontpage" /></a>
+        <div style="text-align:center; font-size:0.9rem; margin-top:8px">Frontpage</div>
+      </div>
+      <div>
+        <a href="#modal-backcover"><img class="thumbnail" src="backcover.png" alt="Backcover" /></a>
+        <div style="text-align:center; font-size:0.9rem; margin-top:8px">Backcover</div>
+      </div>
+    </div>
+
+    <div id="modal-frontpage" class="modal" onclick="location.hash='';">
+      <img src="frontpage.png" alt="Frontpage large" />
+    </div>
+    <div id="modal-backcover" class="modal" onclick="location.hash='';">
+      <img src="backcover.png" alt="Backcover large" />
+    </div>
+
+    <h3>Contact</h3>
+    <p>Contact me at <a href="mailto:henrik.sterner@gmail.com">henrik.sterner@gmail.com</a>.</p>
+  </div>
+</body>
+</html>
