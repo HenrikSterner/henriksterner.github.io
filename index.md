@@ -2,6 +2,8 @@
 
 <!-- Hide GitHub Pages header (safe, reversible). Remove this block to restore header -->
 <style>
+/* Use the same site-wide font as index.html */
+html, body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 /* Common selectors used by GitHub Pages themes and repo header */
 header, .site-header, .Header, .topbar, .site-nav, .navbar, .site-title, .page-title {
   display: none !important;
