@@ -1,89 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Henrik Sterner</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Henrik Sterner — computer science and mathematics teacher, developer and author.">
+  <title>Henrik Sterner | Computer science, teaching and creative coding</title>
   <style>
-    body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; margin: 24px; background:#f9f9f9; color:#111 }
-    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-    h1 { font-size: 2.2rem; margin-bottom: 6px; }
-    p { line-height: 1.55; }
-    .images { display:flex; gap:20px; align-items:flex-start; margin:18px 0; }
-    .thumbnail { width:140px; height:auto; object-fit:cover; border:1px solid #ddd; }
-    @media (max-width:480px){ .thumbnail{ width:100px } .images{ flex-direction:row; justify-content:center } }
-    .modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center }
-    .modal img{ max-width:90vw; max-height:90vh; border:4px solid #fff; box-shadow:0 8px 30px rgba(0,0,0,0.5) }
-    .modal:target{ display:flex }
+    :root { --ink:#172033; --muted:#61708a; --line:#dfe6f1; --surface:#fff; --soft:#f5f8fc; --accent:#2563eb; --accent-dark:#1746a2; --shadow:0 18px 45px rgba(23,32,51,.09); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--soft); font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent-dark); text-underline-offset:3px; }
+    a:hover { color:var(--accent); }
+    .shell { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
+    .site-header { padding:24px 0; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:var(--ink); font-weight:800; letter-spacing:-.02em; text-decoration:none; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:20px; margin:0; padding:0; list-style:none; }
+    .nav-links a { color:var(--muted); font-size:.92rem; font-weight:650; text-decoration:none; }
+    .nav-links a:hover { color:var(--ink); }
+    .hero { padding:72px 0 84px; }
+    .hero-grid { display:grid; grid-template-columns:1.35fr .65fr; align-items:end; gap:56px; }
+    .eyebrow { color:var(--accent-dark); font-size:.76rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+    h1,h2,h3 { line-height:1.15; letter-spacing:-.035em; }
+    h1 { max-width:760px; margin:14px 0 22px; font-size:clamp(2.7rem,7vw,5.4rem); }
+    .lead { max-width:680px; margin:0; color:var(--muted); font-size:1.18rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; padding:11px 17px; border:1px solid var(--accent); border-radius:9px; background:var(--accent); color:#fff; font-weight:750; text-decoration:none; }
+    .button:hover { background:var(--accent-dark); color:#fff; }
+    .button.secondary { border-color:var(--line); background:var(--surface); color:var(--ink); }
+    .button.secondary:hover { border-color:var(--accent); color:var(--accent-dark); }
+    .hero-note { padding:24px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.7); box-shadow:var(--shadow); }
+    .hero-note strong { display:block; margin-bottom:7px; font-size:1.1rem; }
+    .hero-note p { margin:0; color:var(--muted); font-size:.95rem; }
+    main { background:var(--surface); }
+    section { padding:78px 0; }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
+    h2 { margin:0; font-size:clamp(1.85rem,4vw,2.65rem); }
+    .section-heading p { max-width:490px; margin:0; color:var(--muted); }
+    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { display:flex; flex-direction:column; min-height:245px; padding:24px; border:1px solid var(--line); border-radius:14px; background:var(--surface); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
+    .card:hover { border-color:#b8c9e7; box-shadow:var(--shadow); transform:translateY(-3px); }
+    .card-label { color:var(--accent-dark); font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    h3 { margin:10px 0 9px; font-size:1.35rem; }
+    .card p { flex:1; margin:0 0 20px; color:var(--muted); font-size:.95rem; }
+    .card-link { font-weight:750; text-decoration:none; }
+    .split { display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; }
+    .split p { color:var(--muted); }
+    .topics { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:22px; }
+    .topic { padding:17px; border-left:3px solid var(--accent); background:var(--soft); }
+    .topic strong { display:block; margin-bottom:3px; }
+    .topic span { color:var(--muted); font-size:.9rem; }
+    .book { display:grid; grid-template-columns:1fr auto; align-items:center; gap:34px; padding:34px; border-radius:18px; background:#172033; color:#fff; }
+    .book h2 { margin-bottom:12px; }
+    .book p { max-width:680px; margin:0; color:#cbd5e1; }
+    .book .button { margin-top:22px; border-color:#93c5fd; background:transparent; color:#fff; }
+    .book .button:hover { background:#2563eb; }
+    .covers { display:flex; gap:12px; }
+    .covers img { width:95px; height:136px; border-radius:5px; object-fit:cover; box-shadow:0 8px 20px rgba(0,0,0,.3); }
+    footer { padding:30px 0 42px; background:var(--soft); color:var(--muted); font-size:.9rem; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    @media (max-width:800px) { .hero-grid,.split { grid-template-columns:1fr; gap:30px; } .projects { grid-template-columns:repeat(2,1fr); } .hero { padding:45px 0 58px; } }
+    @media (max-width:560px) { .shell { width:min(100% - 28px,1120px); } .site-header { padding:18px 0; } .nav { align-items:flex-start; flex-direction:column; gap:10px; } .projects,.topics,.book { grid-template-columns:1fr; } .book { padding:25px; } .covers { order:-1; } .section-heading,.footer-inner { align-items:flex-start; flex-direction:column; } section { padding:55px 0; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .card { transition:none; } }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Henrik Sterner</h1>
-    <p>Graduate of computer science and mathematics with a minor in psychology from the University of Copenhagen.</p>
-    <p>Half techie, half teacher, full-time believer that something wonderful happens when curiosity and code collide — 
-      usually after several attempts, too much coffee, and an alarming amount of cola.</p>
-
-<h2>Teaching and Interests (a.k.a. Things I Think About Too Much) </h2>
-  <p>I teach computer science and mathematics at the high school level — which means spending my days explaining why code doesn’t work and pretending it was supposed to do that.</p>
-  <p>My classes these days cover subjects like Applied Machine Learning and Data Science — where we take messy data, feed it to algorithms, and act surprised when it learns the wrong thing,
-    Programming and Software Development — turning caffeine and optimism into code (and then into error messages) 
-    and mathematics — the subject that ruins all the fun in programming by insisting on being correct.</p>
-  <p>I also work with teachers taking their pedagogy exams in computer science and mathematics — mostly helping them rediscover that teaching is 30% content, 30% empathy, and 40% pretending you’re not panicking.</p>
-  <p>Check my <a href="https://henriksterner.github.io/">github</a> for more information.</p>
-  
-  <p>Before teaching high school, I was a teaching and research assistant at the University of Copenhagen, guiding students through <em>Algorithms and Data Structures</em> and <em>Advanced Algorithms</em>. I loved it — mostly because it let me talk about recursion in public without being judged.</p>
-
-  <p>My interests these days orbit a few recurring themes:</p>
-  <ul>
-    <li>Machine Learning &amp; Data Mining — especially when applied to computational finance. I’ve worked on predicting financial time series and stock prices, which is basically teaching machines to make the same bad guesses humans do, only faster.</li>
-    <li>Didactics of Computer Science — figuring out how to get students to think like computer scientists without making them hate computer science. In 2017, I helped design Denmark’s <a href="https://www.uvm.dk/-/media/filer/uvm/gym-laereplaner-2017/valgfag/programmering-b-valgfag-august-2017.pdf">Programming B curriculum</a>. In 2023, I published a paper on <a href="https://emu.dk/htx/programmering/avancerede-konstruktioner/algoritmer-i-naturen-emergerende-flokadfaerd-og?b=t6-t1084">object-oriented programming for high school students</a>.</li>
-  </ul>
-  <p>Earlier adventures include:</p>
-  <ul>
-    <li>Computational Geometry &amp; Topology — once used for  <a href="https://hjemmesider.diku.dk/~rfonseca/ProGAL/">protein structure prediction</a>. You can read more in this <a href="https://www.researchgate.net/publication/220939592_Alpha_Shapes_and_Proteins">paper</a>, if you’re into shapes, molecules, and suffering.</li>
-    <li>Parallel and Distributed Algorithms — because waiting for your code to finish is for mortals.</li>
-    <li>Computability and Complexity Theory — the academic equivalent of reading horror stories about what can’t be done.</li>
-  </ul>
-    
-  <h2>Book</h2>
-    <p>I am the co-author of the book <a href="https://www.amazon.com/dp/B0FSR1NW94/ref=sr_1_1?dib=eyJ2IjoiMSJ9.9uLhFNWrQkPjEHbDy7aWA8_j_qP_odKVc9OK4XzmbdPoEePPOiOjDKlmehMQY9eragQ65eDLafCpv0DEWywDUV66ox8QertCQbNxZXoxHlqQI1j3gR8QR8wdgpV6a_rjYRRm9TG7yl303P9naEKP1e2xZhj6R7YEd0c7nYzAMS0SIOqvkzCi0OY9o_udmyxUmJ6fWT5RgkCApAo8RMyrNBzuGKFrQJOFCFzwISTJ4Ow.uwgbauAGTiOQs8GTGD2J8xFVFcqNnbhQKXnGodWQXjA&dib_tag=se&keywords=programming+in+p5&qid=1758876993&sr=8-1">"Programming in P5"</a> together with Peter Sterner. The book uses P5.js for creative coding and visual programming.</p>
-    <div class="images">
-      <div>
-        <a href="#modal-frontpage"><img class="thumbnail" src="frontpage.png" alt="Frontpage" /></a>
-        <div style="text-align:center; font-size:0.9rem; margin-top:8px">Frontpage</div>
-      </div>
-      <div>
-        <a href="#modal-backcover"><img class="thumbnail" src="backcover.png" alt="Backcover" /></a>
-        <div style="text-align:center; font-size:0.9rem; margin-top:8px">Backcover</div>
-      </div>
-    </div>
-
-    <div id="modal-frontpage" class="modal" onclick="location.hash='';">
-      <img src="frontpage.png" alt="Frontpage large" />
-    </div>
-    <div id="modal-backcover" class="modal" onclick="location.hash='';">
-      <img src="backcover.png" alt="Backcover large" />
-    </div>
-
-  <h2>Technical Skills</h2>
-  <p>I’ve been writing code for over thirty years — which means I’ve lived through enough programming fads to know that “the new hot framework” is 
-    just last year’s bad idea with better marketing. 
-    In that time, I’ve dabbled in procedural, object-oriented, functional, logical, and scripting paradigms — or, 
-    as I like to call them, “five different ways to make the same mistake.”</p>
-  <p>My adventures have taken me through web development, game development, algorithm design, compiler design, data science, machine learning, 
-    and software engineering — basically anything that starts with enthusiasm and ends in stack traces. These days I mostly write in Python, JavaScript/TypeScript, Java,C#, and C/C++. 
-    The real challenge isn’t the syntax — it’s remembering which language I’m in before I start shouting at the compiler.</p>
-    
-    <h2>Curriculum vitae</h2>
-    <p>My CV is available upon request — a concise record of many years spent teaching, coding, and occasionally convincing computers to behave.  
-  Please <a href="mailto:henrik.sterner@gmail.com">contact me</a> if you’d like a copy or further details.</p>
-
-    
-    <h2>Contact</h2>
-     <p>If you’ve made it this far, you either have questions, comments, or a remarkable attention span.  
-    You can reach me at <a href="mailto:henrik.sterner@gmail.com">henrik.sterner@gmail.com</a> — I usually reply faster than my code compiles (but no promises).</p>
-
-  </div>
+  <header class="site-header"><div class="shell nav"><a class="brand" href="/">Henrik Sterner</a><nav aria-label="Main navigation"><ul class="nav-links"><li><a href="#projects">Projects</a></li><li><a href="#about">About</a></li><li><a href="#book">Book</a></li><li><a href="https://github.com/HenrikSterner">GitHub ↗</a></li></ul></nav></div></header>
+  <main>
+    <section class="hero"><div class="shell hero-grid"><div><div class="eyebrow">Computer science · mathematics · education</div><h1>Making technology easier to understand — and more fun to explore.</h1><p class="lead">I am a Danish high-school teacher, developer and author working at the intersection of programming, mathematics, machine learning and creative learning.</p><div class="hero-actions"><a class="button" href="#projects">Explore my projects</a><a class="button secondary" href="mailto:henrik.sterner@gmail.com">Get in touch</a></div></div><aside class="hero-note"><strong>Teaching with code</strong><p>My projects turn complex ideas into practical, visual and approachable learning experiences for students and teachers.</p></aside></div></section>
+    <section id="projects"><div class="shell"><div class="section-heading"><h2>Featured projects</h2><p>A selection of teaching materials, experiments and tools from my GitHub work.</p></div><div class="projects">
+      <article class="card"><div class="card-label">Creative coding</div><h3>P5 Programming</h3><p>Visual programming and creative coding with p5.js, designed for students taking their first steps into programming.</p><a class="card-link" href="https://henriksterner.github.io/P5Programmering/">Visit project →</a></article>
+      <article class="card"><div class="card-label">Python</div><h3>Intro Python</h3><p>A practical introduction to general-purpose programming, with examples and exercises for high-school learners.</p><a class="card-link" href="https://henriksterner.github.io/IntroPython/">Visit project →</a></article>
+      <article class="card"><div class="card-label">Data &amp; AI</div><h3>Intelligent Systems</h3><p>Applied machine learning and data science lessons that connect algorithms with real-world questions.</p><a class="card-link" href="https://henriksterner.github.io/IntelligenteSystemer/">Visit project →</a></article>
+      <article class="card"><div class="card-label">Practice</div><h3>Python Exercises</h3><p>A collection of programming challenges for building confidence through deliberate practice and problem solving.</p><a class="card-link" href="https://henriksterner.github.io/PythonExercises/">Visit project →</a></article>
+      <article class="card"><div class="card-label">Game development</div><h3>Unity &amp; Game AI</h3><p>Resources for game development, simulations and artificial intelligence in an engaging visual environment.</p><a class="card-link" href="https://henriksterner.github.io/Unity/">Visit project →</a></article>
+      <article class="card"><div class="card-label">Open source</div><h3>More on GitHub</h3><p>Browse the complete collection of repositories, experiments and educational resources.</p><a class="card-link" href="https://github.com/HenrikSterner?tab=repositories">View repositories →</a></article>
+    </div></div></section>
+    <section id="about"><div class="shell split"><div><div class="eyebrow">A little context</div><h2>Curiosity is the common thread.</h2></div><div><p>I graduated in computer science and mathematics with a minor in psychology from the University of Copenhagen. Before teaching at high-school level, I was a teaching and research assistant in algorithms and data structures.</p><p>Today I teach programming, software development, informatics, technical engineering, mathematics, applied machine learning and data science. I also supervise teachers completing their pedagogy exams.</p><div class="topics"><div class="topic"><strong>Teaching</strong><span>Computational thinking and computer science didactics</span></div><div class="topic"><strong>Research interests</strong><span>Machine learning, data mining, geometry and algorithms</span></div></div></div></div></section>
+    <section id="book"><div class="shell"><div class="book"><div><div class="eyebrow">New publication</div><h2>Programming in P5</h2><p>Co-authored with Peter Sterner, this Danish book uses p5.js to teach programming concepts and problem solving through creative coding.</p><a class="button" href="https://henriksterner.github.io/p5">Read about the book →</a></div><div class="covers" aria-label="Book cover images"><img src="frontpage.png" alt="Front cover of Programming in P5"><img src="backcover.png" alt="Back cover of Programming in P5"></div></div></div></section>
+  </main>
+  <footer><div class="shell footer-inner"><span>© Henrik Sterner</span><a href="mailto:henrik.sterner@gmail.com">henrik.sterner@gmail.com</a></div></footer>
 </body>
 </html>
