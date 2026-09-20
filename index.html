@@ -3,83 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Henrik Sterner — computer science and mathematics teacher, developer and author.">
-  <title>Henrik Sterner | Computer science, teaching and creative coding</title>
-  <style>
-    :root { --ink:#172033; --muted:#61708a; --line:#dfe6f1; --surface:#fff; --soft:#f5f8fc; --accent:#2563eb; --accent-dark:#1746a2; --shadow:0 18px 45px rgba(23,32,51,.09); }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--ink); background:var(--soft); font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
-    a { color:var(--accent-dark); text-underline-offset:3px; }
-    a:hover { color:var(--accent); }
-    .shell { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
-    .site-header { padding:24px 0; }
-    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .brand { color:var(--ink); font-weight:800; letter-spacing:-.02em; text-decoration:none; }
-    .nav-links { display:flex; flex-wrap:wrap; gap:20px; margin:0; padding:0; list-style:none; }
-    .nav-links a { color:var(--muted); font-size:.92rem; font-weight:650; text-decoration:none; }
-    .nav-links a:hover { color:var(--ink); }
-    .hero { padding:72px 0 84px; }
-    .hero-grid { display:grid; grid-template-columns:1.35fr .65fr; align-items:end; gap:56px; }
-    .eyebrow { color:var(--accent-dark); font-size:.76rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
-    h1,h2,h3 { line-height:1.15; letter-spacing:-.035em; }
-    h1 { max-width:760px; margin:14px 0 22px; font-size:clamp(2.7rem,7vw,5.4rem); }
-    .lead { max-width:680px; margin:0; color:var(--muted); font-size:1.18rem; }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .button { display:inline-flex; align-items:center; justify-content:center; padding:11px 17px; border:1px solid var(--accent); border-radius:9px; background:var(--accent); color:#fff; font-weight:750; text-decoration:none; }
-    .button:hover { background:var(--accent-dark); color:#fff; }
-    .button.secondary { border-color:var(--line); background:var(--surface); color:var(--ink); }
-    .button.secondary:hover { border-color:var(--accent); color:var(--accent-dark); }
-    .hero-note { padding:24px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.7); box-shadow:var(--shadow); }
-    .hero-note strong { display:block; margin-bottom:7px; font-size:1.1rem; }
-    .hero-note p { margin:0; color:var(--muted); font-size:.95rem; }
-    main { background:var(--surface); }
-    section { padding:78px 0; }
-    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
-    h2 { margin:0; font-size:clamp(1.85rem,4vw,2.65rem); }
-    .section-heading p { max-width:490px; margin:0; color:var(--muted); }
-    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .card { display:flex; flex-direction:column; min-height:245px; padding:24px; border:1px solid var(--line); border-radius:14px; background:var(--surface); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
-    .card:hover { border-color:#b8c9e7; box-shadow:var(--shadow); transform:translateY(-3px); }
-    .card-label { color:var(--accent-dark); font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
-    h3 { margin:10px 0 9px; font-size:1.35rem; }
-    .card p { flex:1; margin:0 0 20px; color:var(--muted); font-size:.95rem; }
-    .card-link { font-weight:750; text-decoration:none; }
-    .split { display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; }
-    .split p { color:var(--muted); }
-    .topics { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:22px; }
-    .topic { padding:17px; border-left:3px solid var(--accent); background:var(--soft); }
-    .topic strong { display:block; margin-bottom:3px; }
-    .topic span { color:var(--muted); font-size:.9rem; }
-    .book { display:grid; grid-template-columns:1fr auto; align-items:center; gap:34px; padding:34px; border-radius:18px; background:#172033; color:#fff; }
-    .book h2 { margin-bottom:12px; }
-    .book p { max-width:680px; margin:0; color:#cbd5e1; }
-    .book .button { margin-top:22px; border-color:#93c5fd; background:transparent; color:#fff; }
-    .book .button:hover { background:#2563eb; }
-    .covers { display:flex; gap:12px; }
-    .covers img { width:95px; height:136px; border-radius:5px; object-fit:cover; box-shadow:0 8px 20px rgba(0,0,0,.3); }
-    footer { padding:30px 0 42px; background:var(--soft); color:var(--muted); font-size:.9rem; }
-    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
-    @media (max-width:800px) { .hero-grid,.split { grid-template-columns:1fr; gap:30px; } .projects { grid-template-columns:repeat(2,1fr); } .hero { padding:45px 0 58px; } }
-    @media (max-width:560px) { .shell { width:min(100% - 28px,1120px); } .site-header { padding:18px 0; } .nav { align-items:flex-start; flex-direction:column; gap:10px; } .projects,.topics,.book { grid-template-columns:1fr; } .book { padding:25px; } .covers { order:-1; } .section-heading,.footer-inner { align-items:flex-start; flex-direction:column; } section { padding:55px 0; } }
-    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .card { transition:none; } }
-  </style>
+  <meta name="description" content="Henrik Sterner is a computer scientist, machine-learning practitioner, quantitative-finance developer, author and educator working across software, mathematics and psychology.">
+  <meta name="theme-color" content="#f3efe7">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Henrik Sterner — Computer scientist, developer &amp; author">
+  <meta property="og:description" content="Machine learning, quantitative finance, agent orchestration, mathematics, psychology and education.">
+  <meta property="og:url" content="https://henriksterner.github.io/">
+  <meta property="og:image" content="https://henriksterner.github.io/frontpage.png">
+  <title>Henrik Sterner | Computer science, teaching &amp; creative coding</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="site-header"><div class="shell nav"><a class="brand" href="/">Henrik Sterner</a><nav aria-label="Main navigation"><ul class="nav-links"><li><a href="#projects">Projects</a></li><li><a href="#about">About</a></li><li><a href="#book">Book</a></li><li><a href="https://github.com/HenrikSterner">GitHub ↗</a></li></ul></nav></div></header>
-  <main>
-    <section class="hero"><div class="shell hero-grid"><div><div class="eyebrow">Computer science · mathematics · education</div><h1>Making technology easier to understand — and more fun to explore.</h1><p class="lead">I am a Danish high-school teacher, developer and author working at the intersection of programming, mathematics, machine learning and creative learning.</p><div class="hero-actions"><a class="button" href="#projects">Explore my projects</a><a class="button secondary" href="mailto:henrik.sterner@gmail.com">Get in touch</a></div></div><aside class="hero-note"><strong>Teaching with code</strong><p>My projects turn complex ideas into practical, visual and approachable learning experiences for students and teachers.</p></aside></div></section>
-    <section id="projects"><div class="shell"><div class="section-heading"><h2>Featured projects</h2><p>A selection of teaching materials, experiments and tools from my GitHub work.</p></div><div class="projects">
-      <article class="card"><div class="card-label">Creative coding</div><h3>P5 Programming</h3><p>Visual programming and creative coding with p5.js, designed for students taking their first steps into programming.</p><a class="card-link" href="https://henriksterner.github.io/P5Programmering/">Visit project →</a></article>
-      <article class="card"><div class="card-label">Python</div><h3>Intro Python</h3><p>A practical introduction to general-purpose programming, with examples and exercises for high-school learners.</p><a class="card-link" href="https://henriksterner.github.io/IntroPython/">Visit project →</a></article>
-      <article class="card"><div class="card-label">Data &amp; AI</div><h3>Intelligent Systems</h3><p>Applied machine learning and data science lessons that connect algorithms with real-world questions.</p><a class="card-link" href="https://henriksterner.github.io/IntelligenteSystemer/">Visit project →</a></article>
-      <article class="card"><div class="card-label">Practice</div><h3>Python Exercises</h3><p>A collection of programming challenges for building confidence through deliberate practice and problem solving.</p><a class="card-link" href="https://henriksterner.github.io/PythonExercises/">Visit project →</a></article>
-      <article class="card"><div class="card-label">Game development</div><h3>Unity &amp; Game AI</h3><p>Resources for game development, simulations and artificial intelligence in an engaging visual environment.</p><a class="card-link" href="https://henriksterner.github.io/Unity/">Visit project →</a></article>
-      <article class="card"><div class="card-label">Open source</div><h3>More on GitHub</h3><p>Browse the complete collection of repositories, experiments and educational resources.</p><a class="card-link" href="https://github.com/HenrikSterner?tab=repositories">View repositories →</a></article>
-    </div></div></section>
-    <section id="about"><div class="shell split"><div><div class="eyebrow">A little context</div><h2>Curiosity is the common thread.</h2></div><div><p>I graduated in computer science and mathematics with a minor in psychology from the University of Copenhagen. Before teaching at high-school level, I was a teaching and research assistant in algorithms and data structures.</p><p>Today I teach programming, software development, informatics, technical engineering, mathematics, applied machine learning and data science. I also supervise teachers completing their pedagogy exams.</p><div class="topics"><div class="topic"><strong>Teaching</strong><span>Computational thinking and computer science didactics</span></div><div class="topic"><strong>Research interests</strong><span>Machine learning, data mining, geometry and algorithms</span></div></div></div></div></section>
-    <section id="book"><div class="shell"><div class="book"><div><div class="eyebrow">New publication</div><h2>Programming in P5</h2><p>Co-authored with Peter Sterner, this Danish book uses p5.js to teach programming concepts and problem solving through creative coding.</p><a class="button" href="https://henriksterner.github.io/p5">Read about the book →</a></div><div class="covers" aria-label="Book cover images"><img src="frontpage.png" alt="Front cover of Programming in P5"><img src="backcover.png" alt="Back cover of Programming in P5"></div></div></div></section>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="Henrik Sterner, home"><span class="brand-mark" aria-hidden="true">HS</span><span>Henrik Sterner</span></a>
+      <nav aria-label="Main navigation"><ul class="nav-links"><li><a href="#projects">Projects</a></li><li><a href="#labs">Labs</a></li><li><a href="#about">About</a></li><li><a href="#books">Books</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+      <a class="nav-github" href="https://github.com/HenrikSterner" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="shell hero-layout">
+        <div class="hero-copy">
+          <p class="kicker"><span></span> Computer scientist · developer · author</p>
+          <h1>Computer science,<br><em>made practical.</em></h1>
+          <p class="hero-lead">I am a computer scientist, machine-learning practitioner, quantitative-finance developer, author and educator working where software, mathematics and psychology meet.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#projects">Explore the work <span aria-hidden="true">↓</span></a><a class="button button-quiet" href="#about">Professional profile</a></div>
+          <p class="hero-footnote">I also build agent-orchestrated development workflows—because complex software benefits from a team, even when some of the team members are language models.</p>
+        </div>
+        <aside class="hero-overview" aria-label="Portfolio overview">
+          <div class="overview-heading"><div><span>At a glance</span><h2>What lives here</h2></div><span class="overview-symbol" aria-hidden="true">{ }</span></div>
+          <a class="overview-row" href="#projects"><span class="overview-number">01</span><span><strong>Machine learning</strong><small>17 projects, models &amp; intelligent systems</small></span><i aria-hidden="true">→</i></a>
+          <a class="overview-row" href="#about"><span class="overview-number">02</span><span><strong>Quantitative finance</strong><small>Markets, prediction &amp; analytical software</small></span><i aria-hidden="true">→</i></a>
+          <a class="overview-row" href="#about"><span class="overview-number">03</span><span><strong>Agent orchestration</strong><small>AI-assisted software development</small></span><i aria-hidden="true">→</i></a>
+          <a class="overview-row" href="#books"><span class="overview-number">04</span><span><strong>Writing &amp; education</strong><small>Computer science, mathematics &amp; books</small></span><i aria-hidden="true">→</i></a>
+          <p class="overview-note"><code>connecting</code> Code · models · markets · minds</p>
+        </aside>
+      </div>
+      <div class="shell scroll-note"><span>Selected work</span><i></i></div>
+    </section>
+
+    <section class="featured section-pad" id="projects">
+      <div class="shell">
+        <div class="section-intro reveal"><div><p class="kicker"><span></span> Featured projects</p><h2>Where theory meets the<br><em>“run” button.</em></h2></div><p>Teaching resources, books and experiments designed to make difficult ideas tangible. The computer still does exactly what it is told, which remains less reassuring than it sounds.</p></div>
+        <div class="featured-grid">
+          <article class="feature-card feature-dark reveal"><div class="feature-number">01</div><div class="feature-content"><p class="card-type">Machine learning · Python</p><h3>Intelligent Systems</h3><p>A practical course in machine learning, deep learning and data science. Students move between models, mathematics and real datasets—where row 47,382 inevitably contains something surprising.</p><ul class="tag-list" aria-label="Technologies"><li>Python</li><li>Jupyter</li><li>ML</li><li>Data science</li></ul><a class="text-link" href="https://henriksterner.github.io/IntelligenteSystemer/">Visit the course <span aria-hidden="true">↗</span></a></div><div class="feature-graphic graph-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><i></i><i></i><i></i><i></i></div></article>
+          <article class="feature-card feature-coral reveal"><div class="feature-number">02</div><div class="feature-content"><p class="card-type">Creative coding · JavaScript</p><h3>Programming in P5</h3><p>A visual route into programming: from variables and animation to object-oriented design, architecture and testing. Because a bouncing circle can teach more than its CV might suggest.</p><ul class="tag-list" aria-label="Technologies"><li>p5.js</li><li>JavaScript</li><li>OOP</li></ul><a class="text-link" href="https://henriksterner.github.io/P5Programmering/">Explore the material <span aria-hidden="true">↗</span></a></div><div class="feature-graphic shapes-graphic" aria-hidden="true"><span></span><span></span><span></span><i></i></div></article>
+          <article class="feature-card feature-paper reveal"><div class="feature-number">03</div><div class="feature-content"><p class="card-type">Programming foundations · Python</p><h3>Introduction to Python</h3><p>A structured course for learners who are ready to move from visual programming into Python, notebooks and the slightly alarming authority of whitespace.</p><ul class="tag-list" aria-label="Technologies"><li>Python</li><li>Jupyter</li><li>Colab</li></ul><a class="text-link" href="https://henriksterner.github.io/IntroPython/">Start learning <span aria-hidden="true">↗</span></a></div><div class="feature-graphic syntax-graphic" aria-hidden="true"><span>for</span><i>idea</i><span>in</span><i>ideas:</i><b>try(idea)</b></div></article>
+          <article class="feature-card feature-green reveal"><div class="feature-number">04</div><div class="feature-content"><p class="card-type">Practice · Problem solving</p><h3>Python Exercises</h3><p>Exercises from first steps to NumPy, Matplotlib, Streamlit and classic machine-learning projects. Fundamentals first; the fancy things have nowhere sensible to stand otherwise.</p><ul class="tag-list" aria-label="Technologies"><li>Python</li><li>NumPy</li><li>Projects</li></ul><a class="text-link" href="https://henriksterner.github.io/PythonExercises/">Browse the exercises <span aria-hidden="true">↗</span></a></div><div class="feature-graphic steps-graphic" aria-hidden="true"><span>01</span><span>10</span><span>11</span><span>100</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="library section-pad" aria-labelledby="library-title">
+      <div class="shell">
+        <div class="section-intro compact reveal"><div><p class="kicker"><span></span> Project library</p><h2 id="library-title">More things made,<br><em>tested and taught.</em></h2></div><p>A broader collection of courses, tools and experiments. Filter responsibly; no dataset was harmed in the making of these buttons.</p></div>
+        <div class="filters reveal" role="group" aria-label="Filter projects"><button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span>17</span></button><button class="filter-button" type="button" data-filter="python" aria-pressed="false">Python</button><button class="filter-button" type="button" data-filter="creative" aria-pressed="false">Creative code</button><button class="filter-button" type="button" data-filter="data" aria-pressed="false">Data &amp; AI</button><button class="filter-button" type="button" data-filter="teaching" aria-pressed="false">Teaching tools</button></div>
+        <p class="filter-status" aria-live="polite"><span id="project-count">17</span> projects shown</p>
+        <div class="project-grid" id="project-grid">
+          <article class="project-card reveal" data-category="python data teaching"><div class="project-top"><span class="project-index">01</span><span class="project-language python-dot">Python</span></div><h3>Python for Data Science</h3><p>From a Python refresher to data science, machine learning and AI, with notebooks combining executable code and explanation.</p><div class="project-meta"><span>Course material</span><a href="https://github.com/HenrikSterner/PythonForDataScience" aria-label="Open Python for Data Science on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="python teaching"><div class="project-top"><span class="project-index">02</span><span class="project-language python-dot">Python</span></div><h3>Faglig Tinder</h3><p>A Streamlit app for proposing and voting on professional challenges, backed by PostgreSQL, MySQL or a local SQLite fallback.</p><div class="project-meta"><span>Teaching tool</span><a href="https://github.com/HenrikSterner/FagligTinder_FIP" aria-label="Open Faglig Tinder on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="teaching"><div class="project-top"><span class="project-index">03</span><span class="project-language neutral-dot">Git</span></div><h3>Git Introduction</h3><p>A hands-on introduction to terminals, version control and collaborative work on GitHub—for when “final_final_v3” stops being a strategy.</p><div class="project-meta"><span>Workshop</span><a href="https://github.com/HenrikSterner/GitIntro" aria-label="Open Git Introduction on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="creative teaching"><div class="project-top"><span class="project-index">04</span><span class="project-language js-dot">JavaScript</span></div><h3>P5 in Practice</h3><p>An introductory p5.js course developed for Danish upper-secondary programming, moving from shapes to independent projects.</p><div class="project-meta"><span>Course plan</span><a href="https://github.com/HenrikSterner/IntroP5iPraksis" aria-label="Open P5 in Practice on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="creative teaching"><div class="project-top"><span class="project-index">05</span><span class="project-language js-dot">p5.js</span></div><h3>P5 Projects</h3><p>A collection of larger creative-coding projects for students ready to give their loops somewhere more ambitious to go.</p><div class="project-meta"><span>Project collection</span><a href="https://github.com/HenrikSterner/P5Projekter" aria-label="Open P5 Projects on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="python teaching"><div class="project-top"><span class="project-index">06</span><span class="project-language python-dot">Python</span></div><h3>Advanced Programming 24/25</h3><p>A course site for upper-secondary students advancing from fundamentals to functions, objects and larger programming tasks.</p><div class="project-meta"><span>Course archive</span><a href="https://github.com/HenrikSterner/Programmering2425" aria-label="Open Advanced Programming 24/25 on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="creative data"><div class="project-top"><span class="project-index">07</span><span class="project-language js-dot">JavaScript</span></div><h3>Flocking Simulation</h3><p>Craig Reynolds’ boids with alignment, cohesion, separation, predators, peripheral vision and quadtree optimisation.</p><div class="project-meta"><span>Simulation</span><a href="https://github.com/HenrikSterner/Flocking-Simulation" aria-label="Open Flocking Simulation on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="creative teaching"><div class="project-top"><span class="project-index">08</span><span class="project-language unity-dot">Unity</span></div><h3>Unity &amp; Game AI</h3><p>Resources for game development, simulations and artificial intelligence in an environment where bugs may also have physics.</p><div class="project-meta"><span>Games &amp; simulation</span><a href="https://henriksterner.github.io/Unity/" aria-label="Visit Unity and Game AI material">Visit ↗</a></div></article>
+          <article class="project-card reveal" data-category="python teaching"><div class="project-top"><span class="project-index">09</span><span class="project-language python-dot">Python</span></div><h3>Simple Quiz</h3><p>A deliberately small multiple-choice quiz in Python: useful for beginners and refreshingly unlikely to require Kubernetes.</p><div class="project-meta"><span>Starter project</span><a href="https://github.com/HenrikSterner/SimpleQuizPython" aria-label="Open Simple Quiz on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="python teaching"><div class="project-top"><span class="project-index">10</span><span class="project-language python-dot">Python</span></div><h3>Vigenère Cipher</h3><p>A compact implementation of the classical polyalphabetic cipher: algorithms, strings and a historically respectable amount of secrecy.</p><div class="project-meta"><span>Algorithm exercise</span><a href="https://github.com/HenrikSterner/vigenere" aria-label="Open Vigenere Cipher on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="creative teaching"><div class="project-top"><span class="project-index">11</span><span class="project-language html-dot">HTML</span></div><h3>Programming in P5 — Book Site</h3><p>The companion site for the English-language book, bringing creative coding to artists, designers and first-time programmers.</p><div class="project-meta"><span>Book companion</span><a href="https://henriksterner.github.io/p5" aria-label="Visit Programming in P5 book site">Visit ↗</a></div></article>
+          <article class="project-card reveal" data-category="python"><div class="project-top"><span class="project-index">12</span><span class="project-language python-dot">Python</span></div><h3>Random Quote Bot</h3><p>A file-based Python quote bot and a compact exercise in input, output and letting a text file choose its moment.</p><div class="project-meta"><span>Small experiment</span><a href="https://github.com/HenrikSterner/python-random-quote" aria-label="Open Random Quote Bot on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="python teaching"><div class="project-top"><span class="project-index">13</span><span class="project-language python-dot">Python</span></div><h3>SOPtima</h3><p>An active Python project currently taking shape. Details will follow when the code and its explanation agree on what has happened.</p><div class="project-meta"><span>In development</span><a href="https://github.com/HenrikSterner/SOPtima" aria-label="Open SOPtima on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="teaching creative"><div class="project-top"><span class="project-index">14</span><span class="project-language neutral-dot">Markdown</span></div><h3>Reveal.js Slides</h3><p>An example of producing browser-based presentations from Markdown: content first, ceremonial slide alignment second.</p><div class="project-meta"><span>Presentation tool</span><a href="https://github.com/HenrikSterner/reveal-md-example" aria-label="Open Reveal Markdown example on GitHub">View ↗</a></div></article>
+          <article class="project-card reveal" data-category="python data"><div class="project-top"><span class="project-index">15</span><span class="project-language python-dot">Python</span></div><h3>StockAnalyze</h3><p>A Streamlit application for analysing stock portfolios with current market data, fund look-through and measures such as returns, volatility, drawdown, beta, correlation and diversification. Its screening model suggests possible portfolio additions—analysis, not investment advice.</p><div class="project-meta"><span>Selected private work</span><span class="private-project">Portfolio analytics</span></div></article>
+          <article class="project-card reveal" data-category="python data teaching"><div class="project-top"><span class="project-index">16</span><span class="project-language ai-dot">Local AI</span></div><h3>VygotskAI</h3><p>A pedagogical AI scaffold for Python education, combining a locally fine-tuned Danish language model with differentiated feedback, learner profiles and simulated student–teacher dialogues. It helps learners take the next step without quietly completing the entire staircase for them.</p><div class="project-meta"><span>Selected private work</span><span class="private-project">AI &amp; learning</span></div></article>
+          <article class="project-card reveal" data-category="creative teaching python"><div class="project-top"><span class="project-index">17</span><span class="project-language html-dot">Browser tools</span></div><h3>ThinkInUML</h3><p>A zero-installation browser toolkit for class, flow, use-case and sequence diagrams, with JSON and PlantUML export, Python-code generation, Blockly programming and step-by-step code visualisation.</p><div class="project-meta"><span>Software design tools</span><a href="https://henriksterner.github.io/ThinkinInUML/" aria-label="Open ThinkInUML and the Python laboratories">Visit ↗</a></div></article>
+        </div>
+        <div class="library-footer reveal"><p>There are more experiments in the laboratory.</p><a class="button button-outline" href="https://github.com/HenrikSterner?tab=repositories">See all repositories <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="laboratories section-pad" id="labs">
+      <div class="shell">
+        <div class="section-intro compact reveal">
+          <div><p class="kicker"><span></span> Interactive laboratories</p><h2>Thirty-eight places to<br><em>change one thing.</em></h2></div>
+          <p>Browser-based companions to <em>Python i Gymnasiet</em>, developed with Kathrine Bohus Madsen. Each laboratory turns an abstract idea into something students can manipulate, observe and explain—without installation, accounts or a ceremonial dependency crisis.</p>
+        </div>
+
+        <div class="lab-overview reveal">
+          <div class="lab-stat"><strong>38</strong><span>interactive tools</span></div>
+          <div class="lab-stat"><strong>0</strong><span>required installations</span></div>
+          <div class="lab-stat"><strong>1</strong><span>variable changed at a time</span></div>
+          <p>The laboratories connect visual models with algorithms, data structures, diagrams and executable ideas. Students predict, experiment, inspect the result and then explain what the machine did—which is usually more educational than blaming the machine immediately.</p>
+        </div>
+
+        <div class="lab-categories">
+          <article class="lab-category reveal">
+            <span class="lab-category-number">01</span><h3>Python foundations</h3>
+            <p>Move between blocks, code and visible program state while practising the fundamentals.</p>
+            <ul><li>Turtle &amp; Blockly</li><li>Code visualisation</li><li>Debugging</li><li>Regex</li><li>Databases &amp; web scraping</li></ul>
+          </article>
+          <article class="lab-category reveal">
+            <span class="lab-category-number">02</span><h3>Software design</h3>
+            <p>Model systems before implementing them, and follow responsibilities through architectural layers.</p>
+            <ul><li>Class &amp; flow diagrams</li><li>Use cases &amp; sequences</li><li>MVC</li><li>Three-layer architecture</li><li>PlantUML &amp; Mermaid</li></ul>
+          </article>
+          <article class="lab-category reveal">
+            <span class="lab-category-number">03</span><h3>Algorithms &amp; mathematics</h3>
+            <p>Step through algorithms and compare their behaviour, cost and mathematical assumptions.</p>
+            <ul><li>Sorting, graphs &amp; trees</li><li>Dijkstra &amp; A*</li><li>Cryptography &amp; compression</li><li>Monte Carlo &amp; fractals</li><li>Quaternions</li></ul>
+          </article>
+          <article class="lab-category reveal">
+            <span class="lab-category-number">04</span><h3>AI, games &amp; simulation</h3>
+            <p>Train models, program strategies and watch simple rules create surprisingly complicated worlds.</p>
+            <ul><li>KNN, K-means &amp; random forests</li><li>Neural networks</li><li>Agents &amp; evolutionary algorithms</li><li>Robotics &amp; Game of Life</li><li>Snake, Pong &amp; game AI</li></ul>
+          </article>
+        </div>
+
+        <div class="lab-cta reveal">
+          <div><span>ThinkInUML · Python Laboratories</span><h3>Open the laboratory doors.</h3><p>Explore all tools, chapter suggestions and the accompanying teacher guide.</p></div>
+          <div class="lab-actions"><a class="button button-primary" href="https://henriksterner.github.io/ThinkinInUML/">Explore all laboratories <span aria-hidden="true">↗</span></a><a class="button button-outline" href="https://github.com/HenrikSterner/ThinkinInUML">View the repository <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section-pad" id="about">
+      <div class="shell about-layout">
+        <div class="about-heading reveal"><p class="kicker light"><span></span> Professional profile</p><h2>Models, markets<br>&amp; <em>minds.</em></h2><p class="about-quote">“The interesting problems rarely stay inside one discipline. Fortunately, neither do I.”</p></div>
+        <div class="about-copy reveal"><p class="large-copy">I am a computer scientist and mathematician with a minor in psychology from the University of Copenhagen. I work across machine learning, quantitative finance, software development, writing and education.</p><p>As a machine-learning practitioner and quantitative-finance developer, I am interested in predictive models, financial time series, market structure and the software systems that turn mathematical ideas into testable tools. A model is, after all, an opinion with matrices—and should be questioned accordingly.</p><p>I also work with agent orchestration for software development: structuring specialised AI agents, tools and workflows so they can analyse, implement and verify complex systems collaboratively. Alongside this, I teach programming, informatics, mathematics, machine learning and data science, and write books that make the underlying ideas approachable without pretending they are trivial.</p><p>Earlier, I worked as a teaching assistant in algorithms, data structures and advanced algorithms at the University of Copenhagen. I now also supervise teachers completing their pedagogy examinations in computer science.</p><ul class="skill-cloud" aria-label="Programming languages, methods and technologies"><li>Machine learning</li><li>Quantitative finance</li><li>Agent orchestration</li><li>Python</li><li>JavaScript / TypeScript</li><li>Java</li><li>C#</li><li>C / C++</li><li>Jupyter</li></ul></div>
+      </div>
+      <div class="shell interests-grid">
+        <article class="interest-card reveal"><span>01</span><h3>Machine-learning systems</h3><p>Applied modelling, data mining and intelligent systems, with mathematics close enough to inspect and code close enough to test.</p></article>
+        <article class="interest-card reveal"><span>02</span><h3>Quantitative finance</h3><p>Financial time series, price and sales prediction, market analysis and the software used to turn hypotheses into evidence.</p></article>
+        <article class="interest-card reveal"><span>03</span><h3>Agentic software development</h3><p>Orchestrating specialised AI agents, tools and verification loops to develop software as a coordinated system rather than a very confident autocomplete.</p></article>
+        <article class="interest-card reveal"><span>04</span><h3>Mathematics, psychology &amp; learning</h3><p>Using mathematical structure and psychological insight to understand problems, people and how computer science is learned.</p></article>
+      </div>
+      <div class="shell research-strip reveal"><p class="kicker"><span></span> Research foundations</p><div><h3>Algorithms, geometry and computational thinking</h3><p>My academic path includes algorithms and complexity, computational geometry and topology, research on alpha shapes and proteins, contribution to the 2017 Danish upper-secondary programming curriculum, and published teaching material on object-oriented programming through emergent flocking behaviour.</p></div><div class="research-links"><a href="https://www.researchgate.net/publication/220939592_Alpha_Shapes_and_Proteins">Alpha Shapes and Proteins <span>↗</span></a><a href="https://emu.dk/htx/programmering/avancerede-konstruktioner/algoritmer-i-naturen-emergerende-flokadfaerd-og?b=t6-t1084">Algorithms in Nature <span>↗</span></a></div></div>
+    </section>
+
+    <section class="books section-pad" id="books">
+      <div class="shell">
+        <div class="section-intro reveal"><div><p class="kicker"><span></span> Books</p><h2>Long-form ideas,<br><em>carefully debugged.</em></h2></div><p>Two books about learning to program: one published, one currently being written, tested and occasionally stared at until the examples cooperate.</p></div>
+        <div class="books-grid">
+          <article class="published-book reveal"><div class="book-covers"><img src="frontpage.png" alt="Front cover of Programming in P5" loading="lazy"><img src="backcover.png" alt="Back cover of Programming in P5" loading="lazy"></div><div class="book-copy"><p class="book-status"><span></span> Published</p><h3>Programming in P5</h3><p class="book-byline">By Peter Sterner &amp; Henrik Sterner</p><p>A practical introduction to programming through visual and interactive experiences. The book moves from first principles to objects, software architecture and testing without asking the reader to postpone all fun until chapter fourteen.</p><a class="button button-primary" href="https://henriksterner.github.io/p5">Explore the book <span aria-hidden="true">↗</span></a></div></article>
+          <article class="coming-book reveal"><div class="coming-cover" aria-hidden="true"><span class="cover-label">WORK IN<br>PROGRESS</span><strong>PY</strong><i>:</i><small>Python i Gymnasiet</small></div><div class="book-copy"><p class="book-status"><span></span> Coming soon</p><h3>Python i Gymnasiet</h3><p class="book-byline">Currently in development</p><p>A forthcoming book for Python in upper-secondary education, connecting programming with problem solving and classroom practice. It currently lives in a private repository, where indentation is both a programming concept and a character-building exercise.</p><p class="private-note"><span aria-hidden="true">●</span> Selected private work · Repository not public</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact">
+      <div class="contact-decoration" aria-hidden="true">{ }</div>
+      <div class="shell contact-layout reveal"><p class="kicker light"><span></span> Contact</p><h2>Have an idea worth<br><em>experimenting with?</em></h2><p>For machine learning, quantitative finance, agent-based software development, teaching or books, get in touch. Interesting problems are welcome; suspiciously perfect datasets will be questioned politely.</p><div class="contact-actions"><a class="button button-light" href="mailto:henrik.sterner@gmail.com">henrik.sterner@gmail.com <span aria-hidden="true">↗</span></a><a class="button button-ghost" href="https://github.com/HenrikSterner">Find me on GitHub <span aria-hidden="true">↗</span></a></div></div>
+    </section>
   </main>
-  <footer><div class="shell footer-inner"><span>© Henrik Sterner</span><a href="mailto:henrik.sterner@gmail.com">henrik.sterner@gmail.com</a></div></footer>
+
+  <footer class="site-footer"><div class="shell footer-layout"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">HS</span><span>Henrik Sterner</span></a><p>Code, models, markets and minds—occasionally all in the same repository.</p><p>© <span id="year">2026</span> Henrik Sterner</p></div></footer>
 </body>
 </html>
