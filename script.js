@@ -21,6 +21,20 @@
     });
   });
 
+  document.querySelectorAll('[data-dialog-open]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const dialog = document.querySelector(`#${trigger.dataset.dialogOpen}`);
+      if (dialog) dialog.showModal();
+    });
+  });
+
+  document.querySelectorAll('.project-dialog').forEach((dialog) => {
+    dialog.querySelector('[data-dialog-close]').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) {
