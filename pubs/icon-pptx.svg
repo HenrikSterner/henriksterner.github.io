@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 28 36" role="img" aria-label="PPTX">
+  <rect x="1" y="1" width="26" height="34" rx="3" fill="#ff9800" stroke="#ef6c00"/>
+  <rect x="1" y="1" width="26" height="9" rx="3" fill="#f57c00"/>
+  <text x="14" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" font-weight="bold">PPTX</text>
+</svg>
