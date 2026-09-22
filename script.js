@@ -22,9 +22,13 @@
   });
 
   document.querySelectorAll('[data-dialog-open]').forEach((trigger) => {
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
       const dialog = document.querySelector(`#${trigger.dataset.dialogOpen}`);
-      if (dialog) dialog.showModal();
+      if (dialog) {
+        dialog.showModal();
+        history.replaceState(null, '', trigger.getAttribute('href'));
+      }
     });
   });
 
@@ -33,7 +37,14 @@
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) dialog.close();
     });
+    dialog.addEventListener('close', () => {
+      if (window.location.hash === '#soptima') history.replaceState(null, '', window.location.pathname);
+    });
   });
+
+  if (window.location.hash === '#soptima') {
+    document.querySelector('#soptima-dialog')?.showModal();
+  }
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = document.querySelectorAll('.reveal');
